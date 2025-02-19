@@ -705,7 +705,7 @@ body, html {
 }
 
 .team-image {
-  flex: 0 0 150px;
+  flex: 0 0 200px;
   width: 200px;
   height: 200px;
   border-radius: 50%;
