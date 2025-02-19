@@ -10,6 +10,8 @@ const ContactUsSection = () => {
     message: "",
   });
 
+  const [showPopup, setShowPopup] = useState(false); // Pop-up state
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -25,9 +27,9 @@ const ContactUsSection = () => {
     if (error) {
       console.error("Error submitting form:", error.message);
     } else {
-      console.log("Form submitted successfully!", data);
-      alert("Thank you! We’ll be in touch soon.");
-      setFormData({ firstName: "", lastName: "", email: "", message: "" }); // Clear form
+        setShowPopup(true);
+        setTimeout(() => setShowPopup(false), 3000);
+        setFormData({ firstName: "", lastName: "", email: "", message: "" });
     }
   };
 
@@ -90,6 +92,14 @@ const ContactUsSection = () => {
 
         <button type="submit" className="contact-btn">Send</button>
       </form>
+      {showPopup && (
+        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+            <div className="popup">
+            <img src="/cec-logo-small.png" alt="Logo" className="popup-logo" />
+            <p>Thank you! We will be in touch soon.</p>
+            </div>
+        </div>
+        )}
     </section>
   );
 };

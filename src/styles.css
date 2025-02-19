@@ -423,7 +423,7 @@ body, html {
 
 .contact-info p {
   font-size: 1.1rem;
-  color: #B9B9B9;
+  color: #FFFFFF;
   margin-bottom: 0.5rem;
 }
 
@@ -443,7 +443,7 @@ body, html {
   display: block;
   font-size: 1rem;
   margin-bottom: 0.5rem;
-  color: #B9B9B9;
+  color: #FFFFFF;
 }
 
 .required {
@@ -467,7 +467,7 @@ body, html {
   width: 100%;
   padding: 12px;
   font-size: 1rem;
-  border: 1px solid #B9B9B9;
+  border: 1px solid #FFFFFF;
   border-radius: 4px;
   background: white;
   color: black;
@@ -510,5 +510,87 @@ body, html {
 
   .name-fields {
     flex-direction: column;
+  }
+}
+
+/* Pop-up Overlay (Background Blur) */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  backdrop-filter: blur(6px); /* Blur effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Pop-up Box */
+.popup {
+  background: #FFFFFF;
+  color: #0F5C94;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  max-width: 400px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Prevent Clicks Inside Pop-up from Closing It */
+.popup-overlay .popup {
+  pointer-events: none;
+}
+
+.popup-logo {
+  width: auto;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background: #121212;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 10%;
+  box-sizing: border-box;
+  border-top: 1px solid #B9B9B9;
+}
+
+/* Logo */
+.footer-logo {
+  height: 40px; /* Keeps it similar to navbar */
+  width: auto;
+}
+
+/* Footer Info - Three Items */
+.footer-info {
+  display: flex;
+  gap: 2rem; /* Spacing between text items */
+  font-size: 0.875rem;
+  color: #FFFFFF;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
   }
 }
