@@ -8,7 +8,7 @@ const TeamSection = () => {
 
       <div className="team-member">
         <div className="team-image">
-          <img src="/public/headshots/doug-terc.png" alt="Douglas Terc" />
+          <img src="../public/doug-terc.png" alt="Douglas Terc" />
         </div>
         <div className="team-info">
           <h3 className="team-name">Douglas Terc</h3>
@@ -24,7 +24,7 @@ const TeamSection = () => {
 
       <div className="team-member">
         <div className="team-image">
-          <img src="/public/headshots/timin-sonik.png" alt="Timin Sonik" />
+          <img src="../public/timin-sonik.png" alt="Timin Sonik" />
         </div>
         <div className="team-info">
           <h3 className="team-name">Timin Sonik</h3>
