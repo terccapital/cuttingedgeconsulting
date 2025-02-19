@@ -1,25 +1,14 @@
-import "./styles.css";
-import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import BusDiagSection from "./components/BusDiagSection";
-import UnlockPotential from "./components/UnlockPotential";
-import StreamlineSection from "./components/StreamlineSection";
-import ContactUsSection from "./components/ContactUsSection";
-import Footer from "./components/Footer"; 
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <HeroSection />
-      <BusDiagSection />
-      <UnlockPotential />
-      <StreamlineSection />
-      <ContactUsSection />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
   );
 }
 
 export default App;
-

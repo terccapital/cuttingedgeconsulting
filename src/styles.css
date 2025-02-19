@@ -6,6 +6,9 @@ body {
     font-weight: 400;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
   
 /* Navbar Base Styling */
@@ -18,7 +21,8 @@ body {
   color: white;
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 1px solid #B9B9B9;
+  border-bottom: 1px solid #FFFFFF;
+  /*box-shadow: 0px 10px 8px rgba(185, 185, 185, 0.1);*/
 }
 
 
@@ -155,8 +159,8 @@ body, html {
   width: 100%; /* Prevents overflow */
   max-width: 100vw; /* Ensures it doesn't exceed viewport width */
   box-sizing: border-box; /* Ensures padding doesn’t add extra width */
-  border-bottom: 1px solid #B9B9B9;
-  box-shadow: 0px 10px 8px rgba(185, 185, 185, 0.1);
+  border-bottom: 1px solid #FFFFFF;
+  /*box-shadow: 0px 10px 8px rgb(231, 228, 228);*/
 }
 
 /* Fix Any Child Elements That Might Be Overflowing */
@@ -591,6 +595,159 @@ body, html {
   .footer-info {
     flex-direction: column;
     gap: 0.5rem;
+    margin-top: 1rem;
+  }
+}
+
+/* About Section */
+.about-section {
+  display: flex;
+  align-items: flex-start;  /* Align content to the top */
+  justify-content: space-between;
+  width: 100%;
+  background: #121212;
+  color: white;
+  padding: 1rem 10%;
+  box-sizing: border-box;
+  margin-top: 30px; /* ✅ Pull up 30px below navbar */
+  border-bottom: 1px solid #FFFFFF;
+}
+
+/* Left Side - Text */
+.about-text {
+  flex: 1;
+  justify-content: flex-start;
+  max-width: 50%;
+  text-align: left;
+}
+
+/* Title */
+.about-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1470AF;
+  margin-bottom: 2rem; /* Reduce space below title */
+}
+
+/* Description */
+.about-description {
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  max-width: 90%;
+}
+
+/* Right Side - Image */
+.about-image {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ✅ Align to top */
+}
+
+.about-image img {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 3rem 5%;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-image {
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.team-section {
+  text-align: center;
+  padding: 4rem 10%;
+  background: #121212;
+  color: white;
+}
+
+.team-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1470AF;
+  margin-bottom: 1rem;
+}
+
+.team-divider {
+  width: 80%;
+  height: 1px;
+  background: white;
+  margin: 2rem auto;
+}
+
+.team-member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3rem 0;
+}
+
+.team-image {
+  flex: 0 0 150px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%); /* Converts the image to black and white */
+  transition: filter 0.3s ease-in-out;
+}
+
+.team-image img:hover {
+  filter: grayscale(0%);
+}
+
+.team-info {
+  flex: 1;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.team-name {
+  font-size: 2rem;
+  color: #1470AF;
+}
+
+.team-bio {
+  font-size: 1rem;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .team-info {
+    padding-left: 0;
     margin-top: 1rem;
   }
 }
