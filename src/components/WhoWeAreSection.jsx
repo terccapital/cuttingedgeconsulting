@@ -1,4 +1,5 @@
-import "../styles.css";
+import "../styles/WhoWeAreSection.css";
+import "../styles/Global.css";
 
 const About = () => {
   return (

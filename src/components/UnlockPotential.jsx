@@ -1,4 +1,5 @@
-import "../styles.css";
+import "../styles/UnlockPotential.css";
+import "../styles/Global.css";
 import { Check } from "lucide-react"; // Import checkmark icon
 
 const UnlockPotential = () => {

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "../styles.css";
+import "../styles/Navbar.css";
+import "../styles/Global.css";
 import { Menu, X } from "lucide-react"; // Menu (☰) and Close (X) icons
 import { Link } from "react-router-dom";
 

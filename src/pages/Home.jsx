@@ -1,4 +1,4 @@
-import "../styles.css";
+import "../styles/Global.css";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import BusDiagSection from "../components/BusDiagSection";

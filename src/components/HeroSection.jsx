@@ -1,4 +1,5 @@
-import "../styles.css"; // Make sure styles are applied
+import "../styles/HeroSection.css"; // Make sure styles are applied
+import "../styles/Global.css";
 
 const HeroSection = () => {
   return (

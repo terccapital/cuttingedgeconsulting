@@ -1,4 +1,5 @@
-import "../styles.css";
+import "../styles/BusDiagSection.css";
+import "../styles/Global.css";
 import { useState, useEffect } from "react";
 
 const BusDiagSection = () => {

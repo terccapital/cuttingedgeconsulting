@@ -1,4 +1,5 @@
-import "../styles.css";
+import "../styles/TeamSection.css";
+import "../styles/Global.css";
 
 const TeamSection = () => {
   return (

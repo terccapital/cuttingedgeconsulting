@@ -1,0 +1,19 @@
+.busdiag-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #121212;
+    padding: 4rem 0;
+}
+
+.responsive-image {
+    width: 100%;
+    max-width: 75%; /* Adjust based on preference */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .responsive-image {
+        max-width: 80%;
+    }
+}

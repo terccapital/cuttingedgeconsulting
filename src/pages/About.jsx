@@ -1,4 +1,4 @@
-import "../styles.css";
+import "../styles/Global.css";
 import Navbar from "../components/Navbar";
 import WhoWeAreSection from "../components/WhoWeAreSection"; // Your about section component
 import TeamSection from "../components/TeamSection";

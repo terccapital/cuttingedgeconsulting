@@ -1,4 +1,5 @@
-import "../styles.css";
+import "../styles/ContactUsSection.css";
+import "../styles/Global.css";
 import { useState } from "react";
 import supabase from "../supabaseClient";
 
