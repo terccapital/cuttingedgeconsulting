@@ -9,16 +9,22 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Logging in with", { email, password });
-    // Add Supabase login logic here
   };
 
   return (
     <div className="login-page">
-      {/* Left Section: Login */}
-      <div className="login-left">
-        <img src="/cec-logo-white.png" alt="CEC Logo" className="login-logo" />
+      {/* Left Section: Image */}
+      <div className="login-image"></div>
 
-        <div className="login-container">
+      {/* Right Section: Logo + Form */}
+      <div className="login-right">
+        {/* Top Logo */}
+        <div className="login-logo-bar">
+          <img src="/cec-logo-white.png" alt="CEC Logo" className="login-logo" />
+        </div>
+
+        {/* Form Section */}
+        <div className="login-form-container">
           <h2 className="login-title">Welcome Back</h2>
           <form onSubmit={handleSubmit}>
             <input
@@ -43,17 +49,16 @@ const LoginPage = () => {
           </form>
 
           {/* Sign-Up Clause */}
-          <p className="signup-clause">
+          <p className="login-clause">
             Don't have an account? <a href="/signup">Sign Up</a>
           </p>
         </div>
       </div>
-
-      {/* Right Section: Image */}
-      <div className="login-right"></div>
     </div>
   );
 };
 
 export default LoginPage;
+
+
 

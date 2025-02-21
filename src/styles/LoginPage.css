@@ -1,61 +1,70 @@
-/* Full Page Split Styling */
+/* Main Layout */
 .login-page {
   display: flex;
-  flex-direction: row; /* Ensure horizontal layout */
+  flex-direction: row;
   height: 100vh;
   width: 100vw;
   background: #121212;
   color: white;
 }
 
-/* Left Side - Login Section */
-.login-left {
+/* Left Side - Image */
+.login-image {
+  flex: 0.7;
+  background: url('/nc-mountains-1.jpg') no-repeat center center/cover;
+  filter: grayscale(100%);
+  height: 100vh;
+}
+
+.login-image:hover {
+  filter: grayscale(0%);
+}
+
+/* Right Side - Logo & Form Section */
+.login-right {
   flex: 0.3;
   background: #1e1e1e;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 2rem;
+  align-items: flex-start;
+  padding: 2rem;
   box-sizing: border-box;
-  position: relative;
-  height: 100vh; /* Ensure full height */
 }
 
-/* Logo Styling */
+/* Logo Section */
+.login-logo-bar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
 .login-logo {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
   height: 60px;
 }
 
-/* Form Styling */
-.login-container {
+/* Form Container */
+.login-form-container {
   width: 100%;
   max-width: 400px;
-  text-align: center;
-}
-
-.login-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;  /* Align content to the top */
-  padding: 2rem;
-  gap: 1rem;  /* Space between elements */
-  margin-top: 2rem;  /* Adjust this to move content closer */
+  align-items: flex-start;
+  justify-content: center;
+  flex-grow: 1;
 }
 
-/* Title - Welcome Back */
+/* Title */
 .login-title {
   font-size: 2rem;
   font-weight: 500;
+  margin-bottom: 1.5rem;
   color: white;
   text-align: left;
-  margin-top: 1rem;  /* Reduce the margin to move it closer */
+  width: 100%;
 }
 
+/* Inputs */
 .login-input {
   width: 100%;
   padding: 12px 16px;
@@ -63,11 +72,12 @@
   border-radius: 8px;
   border: 1px solid #ffffff;
   background: #121212;
-  color: #ffffff;
+  color: white;
   font-size: 1rem;
   box-sizing: border-box;
 }
 
+/* Button */
 .login-button {
   width: 100%;
   padding: 12px;
@@ -77,7 +87,6 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin-top: 1rem;
 }
 
 .login-button:hover {
@@ -85,65 +94,49 @@
   color: white;
 }
 
-.signup-clause {
+/* Sign-Up Clause */
+.login-clause {
   margin-top: 1.5rem;
   font-size: 0.9rem;
-  color: #ffffff;
 }
 
-.signup-clause a {
-  color: #1470af;
+.login-clause a {
+  color: #1470AF;
   text-decoration: none;
   font-weight: 600;
 }
 
-.signup-clause a:hover {
+.login-clause a:hover {
   text-decoration: underline;
-}
-
-/* Right Side - Image Section */
-.login-right {
-  flex: 0.7;
-  background: url('/nc-mountains-1.jpg') no-repeat center center/cover;
-  filter: grayscale(100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* Ensures it fills the height */
-}
-
-.login-right:hover {
-  filter: grayscale(0%);
-}
-
-.signin-right {
-  flex: 0.7;
-  background: url('/Charlotte-Pic-2.jpg') no-repeat center center/cover;
-  filter: grayscale(100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* Ensures it fills the height */
-}
-
-.signin-right:hover {
-  filter: grayscale(0%);
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .login-page {
-    flex-direction: column; /* Stack for mobile */
+    flex-direction: column;
   }
 
-  .login-left, .login-right {
+  .login-logo-bar {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .login-image {
+    height: 250px;
+  }
+
+  .login-right {
     flex: 1;
     width: 100%;
+    padding: 1.5rem;
+    align-items: center;
   }
 
-  .login-logo {
-    top: 1rem;
-    left: 1rem;
-    height: 60px;
+  .login-form-container {
+    align-items: center;
+  }
+
+  .login-title {
+    text-align: center;
   }
 }
