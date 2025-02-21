@@ -1,14 +1,32 @@
 import "../styles/SignUpPage.css";
 import "../styles/Global.css";
 import { useState } from "react";
+import supabase from "../supabaseClient";
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signing up with", { email, password });
+    setError(null);
+    setSuccess(null);
+
+    // Supabase Sign-Up Logic
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
+
+    if (error) {
+      console.error("Sign Up Error:", error.message);
+      setError(error.message);
+    } else {
+      console.log("Sign Up Successful", data);
+      setSuccess("Account created successfully! Please check your email to verify your account.");
+    }
   };
 
   return (
@@ -48,6 +66,10 @@ const SignUpPage = () => {
             </button>
           </form>
 
+          {/* Display Success or Error Messages */}
+          {success && <p className="signup-success">{success}</p>}
+          {error && <p className="signup-error">{error}</p>}
+
           {/* Sign-In Clause */}
           <p className="signup-clause">
             Already have an account? <a href="/login">Sign In</a>
@@ -59,5 +81,6 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
+
 
 

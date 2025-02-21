@@ -110,6 +110,22 @@
     text-decoration: underline;
 }
 
+/* Success and Error Messages */
+.signup-success {
+    color: #4caf50; /* Green for success */
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  
+  .signup-error {
+    color: #ff4d4d; /* Red for error */
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .signup-page {
