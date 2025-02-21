@@ -16,13 +16,16 @@ const Navbar = () => {
 
       {/* Desktop Links (Hidden on Mobile) */}
       <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
       </ul>
 
       {/* Right Side: Login & Hamburger */}
       <div className="nav-right">
-        <a href="#login" className="login-btn">Log In</a>
+        {/* Direct Link to Login Page */}
+        <Link to="/login" className="login-btn">
+          Log In
+        </Link>
 
         {/* Hamburger Menu (Only Visible on Mobile) */}
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
@@ -34,8 +37,9 @@ const Navbar = () => {
       {menuOpen && (
         <div className="mobile-menu">
           <ul>
-            <li><a href="/" onClick={() => setMenuOpen(false)}>Home</a></li>
-            <li><a href="/about" onClick={() => setMenuOpen(false)}>About</a></li>
+            <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+            <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
+            <li><Link to="/login" onClick={() => setMenuOpen(false)}>Log In</Link></li>
           </ul>
         </div>
       )}
