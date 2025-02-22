@@ -7,19 +7,22 @@ import { useNavigate } from "react-router-dom";
 const CreateUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
   const navigate = useNavigate();
+
+  const passwordsMatch = password === confirmPassword && password !== "";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
     setSuccess(null);
 
-    // Check if email already exists in auth.users
-    const { data: existingUser, error: checkError } = await supabase
+    // Check if email already exists
+    const { data: existingUser } = await supabase
       .from("profiles")
       .select("id")
       .eq("email", email)
@@ -30,7 +33,7 @@ const CreateUser = () => {
       return;
     }
 
-    // Proceed with Sign-Up if email doesn't exist
+    // Proceed with Sign-Up
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -42,11 +45,7 @@ const CreateUser = () => {
     } else {
       console.log("User Signed Up:", data);
       setSuccess("Account created successfully! Please check your email to verify your account before logging in.");
-
-      // Redirect to login after a brief delay
-      setTimeout(() => {
-        navigate("/login"); // Redirects to login page after 3 seconds
-      }, 3000);
+      navigate("/login");
     }
   };
 
@@ -74,26 +73,53 @@ const CreateUser = () => {
               required
             />
 
+            {/* Initial Password Input (No Toggle) */}
             <div className="password-wrapper">
               <input
-                type={showPassword ? "text" : "password"}
+                type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="password-input"
                 required
               />
+            </div>
+
+            {/* Confirm Password Input (With Toggle) */}
+            <div className="password-wrapper">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="password-input"
+                required
+              />
               <label className="switch">
                 <input
                   type="checkbox"
-                  checked={showPassword}
-                  onChange={() => setShowPassword(!showPassword)}
+                  checked={showConfirmPassword}
+                  onChange={() => setShowConfirmPassword(!showConfirmPassword)}
                 />
                 <span className="slider"></span>
               </label>
             </div>
 
-            <button type="submit" className="create-user-button">
+            {/* Password Match Feedback */}
+            {confirmPassword && (
+              <p
+                className={passwordsMatch ? "password-match-success" : "password-match-error"}
+              >
+                {passwordsMatch ? "Passwords match!" : "Passwords do not match."}
+              </p>
+            )}
+
+            {/* Create Account Button */}
+            <button
+              type="submit"
+              className="create-user-button"
+              disabled={!passwordsMatch}
+            >
               Create Account
             </button>
           </form>

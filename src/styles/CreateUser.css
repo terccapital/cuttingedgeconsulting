@@ -196,6 +196,28 @@ input:checked + .slider:before {
   text-align: left;
 }
 
+/* Password Match Feedback */
+.password-match-success {
+  color: #4caf50; /* Green */
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.password-match-error {
+  color: #ff4d4d; /* Red */
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+/* Disabled Button Style */
+.create-user-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .create-user-page {
