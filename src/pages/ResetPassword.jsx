@@ -2,6 +2,7 @@ import "../styles/ResetPassword.css";
 import "../styles/Global.css";
 import { useState } from "react";
 import supabase from "../supabaseClient";
+import { useNavigate } from "react-router-dom";
 
 const ResetPasswordPage = () => {
   const [newPassword, setNewPassword] = useState("");
@@ -9,6 +10,8 @@ const ResetPasswordPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleResetPassword = async () => {
     setMessage(null);
@@ -28,6 +31,9 @@ const ResetPasswordPage = () => {
       setError("Failed to reset password. Please try again.");
     } else {
       setMessage("Password has been reset successfully!");
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     }
   };
 
