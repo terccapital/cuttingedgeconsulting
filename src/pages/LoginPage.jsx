@@ -29,7 +29,27 @@ const LoginPage = () => {
     } else {
       console.log("Login Successful:", data);
       setSuccess("Login successful!");
-      navigate("/create-account"); // Redirect after successful login
+
+      // Check if the profile exists for the user
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (user) {
+        const { data: profile, error: profileError } = await supabase
+          .from("profiles")
+          .select("*")
+          .eq("id", user.id)
+          .single();
+
+        if (profileError || !profile) {
+          console.log("No profile found, redirecting to account setup...");
+          navigate("/create-account"); // Redirect to setup questions
+        } else {
+          console.log("Profile found, redirecting to profile page...");
+          navigate("/profile"); // Redirect to profile page
+        }
+      }
     }
   };
 
@@ -83,6 +103,11 @@ const LoginPage = () => {
 
           {success && <p className="login-success">{success}</p>}
           {error && <p className="login-error">{error}</p>}
+
+          {/* Forgot Password Link */}
+          <p className="login-clause">
+            <a href="/forgot-password">Forgot Password?</a>
+          </p>
 
           {/* Sign-Up Clause */}
           <p className="login-clause">

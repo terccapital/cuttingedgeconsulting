@@ -5,6 +5,9 @@ import LoginPage from "./pages/LoginPage";
 import CreateUser from "./pages/CreateUser";
 import CreateAccount from "./pages/CreateAccount";
 import ConfirmEmail from "./pages/ConfirmEmail";
+import ProfilePage from "./pages/ProfilePage";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
       <Route path="/create-user" element={<CreateUser />} />
       <Route path="/create-account" element={<CreateAccount />} />
       <Route path="/confirm" element={<ConfirmEmail />} />
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
     </Routes>
   );
 }

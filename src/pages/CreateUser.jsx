@@ -18,6 +18,19 @@ const CreateUser = () => {
     setError(null);
     setSuccess(null);
 
+    // Check if email already exists in auth.users
+    const { data: existingUser, error: checkError } = await supabase
+      .from("profiles")
+      .select("id")
+      .eq("email", email)
+      .single();
+
+    if (existingUser) {
+      setError("This email is already registered. Please use a different email or sign in.");
+      return;
+    }
+
+    // Proceed with Sign-Up if email doesn't exist
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -29,6 +42,11 @@ const CreateUser = () => {
     } else {
       console.log("User Signed Up:", data);
       setSuccess("Account created successfully! Please check your email to verify your account before logging in.");
+
+      // Redirect to login after a brief delay
+      setTimeout(() => {
+        navigate("/login"); // Redirects to login page after 3 seconds
+      }, 3000);
     }
   };
 
@@ -94,6 +112,5 @@ const CreateUser = () => {
 };
 
 export default CreateUser;
-
 
 

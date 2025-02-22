@@ -3,6 +3,7 @@ import "../styles/Global.css";
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import supabase from "../supabaseClient";
+import { useNavigate } from "react-router-dom"; // Import navigation hook
 
 const CreateAccount = () => {
   const [step, setStep] = useState(1);
@@ -12,6 +13,8 @@ const CreateAccount = () => {
   const [company, setCompany] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+
+  const navigate = useNavigate(); // Initialize navigation
 
   // Handle personal info submission
   const handlePersonalInfoSubmit = (e) => {
@@ -37,13 +40,13 @@ const CreateAccount = () => {
         return;
       }
 
-      const { data, error } = await supabase.from("profiles").insert([
+      const { data, error } = await supabase.from("profiles").upsert([
         {
           id: user.user.id, // Foreign key linked to auth.users
           first_name: firstName,
           last_name: lastName,
           company: company,
-          user_type: userType, // Using user_type instead of account_type
+          user_type: userType,
         },
       ]);
 
@@ -53,7 +56,12 @@ const CreateAccount = () => {
       } else {
         console.log("Profile created successfully:", data);
         setSuccess("Profile created successfully!");
-        setStep(4); // Move to success screen
+        setStep(4);
+
+        // Redirect to the profile page after a short delay
+        setTimeout(() => {
+          navigate("/profile");
+        }, 2000); // Redirect after 2 seconds
       }
     } else {
       setUserType(null);
@@ -135,7 +143,9 @@ const CreateAccount = () => {
           <>
             <h2 className="create-account-title">You're all set!</h2>
             {success ? (
-              <p className="selection-confirmation">{success}</p>
+              <p className="selection-confirmation">
+                {success} Redirecting to your profile...
+              </p>
             ) : (
               <p className="signup-error">{error}</p>
             )}

@@ -23,7 +23,7 @@
 /* Right Side - Logo & Form Section */
 .login-right {
   flex: 0.3;
-  background: #1e1e1e;
+  background: #121212;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -152,6 +152,7 @@ input:checked + .slider:before {
   font-size: 1rem;
   border: 2px solid #1470AF;
   color: #1470AF;
+  background: transparent;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -160,6 +161,7 @@ input:checked + .slider:before {
 .login-button:hover {
   background: #1470AF;
   color: white;
+  border: 2px solid #1470AF;
 }
 
 /* Sign-Up Clause */
@@ -178,6 +180,18 @@ input:checked + .slider:before {
   text-decoration: underline;
 }
 
+/* Forgot Password Link */
+.login-clause a {
+  color: #1470AF;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-clause a:hover {
+  text-decoration: underline;
+  color: #1470AF;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .login-page {
@@ -190,7 +204,7 @@ input:checked + .slider:before {
   }
 
   .login-image {
-    height: 250px;
+    height: 200px;
   }
 
   .login-right {
