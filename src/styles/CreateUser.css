@@ -230,7 +230,7 @@ input:checked + .slider:before {
   }
 
   .create-user-image {
-    height: 200px;
+    max-height: 200px;
   }
 
   .create-user-right {
