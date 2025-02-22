@@ -204,7 +204,7 @@ input:checked + .slider:before {
   }
 
   .login-image {
-    height: 200px;
+    height: 150px;
   }
 
   .login-right {

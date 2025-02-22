@@ -37,6 +37,9 @@ const CreateUser = () => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: import.meta.env.VITE_SUPABASE_REDIRECT_LOGIN,
+      },
     });
 
     if (error) {
