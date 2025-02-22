@@ -62,7 +62,7 @@ const ProfilePage = () => {
             <strong>Company:</strong> {profile.company}
           </div>
           <div className="profile-info-item">
-            <strong>Account Type:</strong> {profile.user_type}
+            <strong>Profile Type:</strong> {profile.user_type}
           </div>
         </div>
 

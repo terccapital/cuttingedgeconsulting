@@ -44,7 +44,7 @@ const LoginPage = () => {
 
         if (profileError || !profile) {
           console.log("No profile found, redirecting to account setup...");
-          navigate("/create-account"); // Redirect to setup questions
+          navigate("/create-profile"); // Redirect to setup questions
         } else {
           console.log("Profile found, redirecting to profile page...");
           navigate("/profile"); // Redirect to profile page

@@ -1,11 +1,11 @@
-import "../styles/CreateAccount.css";
+import "../styles/CreateProfile.css";
 import "../styles/Global.css";
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import supabase from "../supabaseClient";
 import { useNavigate } from "react-router-dom"; // Import navigation hook
 
-const CreateAccount = () => {
+const CreateProfile = () => {
   const [step, setStep] = useState(1);
   const [userType, setUserType] = useState(null);
   const [firstName, setFirstName] = useState("");
@@ -77,21 +77,21 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="create-account-page">
-      <div className="create-account-container">
-        <img src="/cec-logo-white.png" alt="CEC Logo" className="create-account-logo" />
+    <div className="create-profile-page">
+      <div className="create-profile-container">
+        <img src="/cec-logo-white.png" alt="CEC Logo" className="create-profile-logo" />
 
         {/* Step 1: Enter Name and Company Info */}
         {step === 1 && (
           <>
-            <h2 className="create-account-title">Tell us about yourself</h2>
-            <form onSubmit={handlePersonalInfoSubmit} className="account-info-form">
+            <h2 className="create-profile-title">Tell us about yourself</h2>
+            <form onSubmit={handlePersonalInfoSubmit} className="profile-info-form">
               <input
                 type="text"
                 placeholder="First Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="account-info-input"
+                className="profile-info-input"
                 required
               />
               <input
@@ -99,7 +99,7 @@ const CreateAccount = () => {
                 placeholder="Last Name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="account-info-input"
+                className="profile-info-input"
                 required
               />
               <input
@@ -107,10 +107,10 @@ const CreateAccount = () => {
                 placeholder="Company Name"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                className="account-info-input"
+                className="profile-info-input"
                 required
               />
-              <button type="submit" className="account-type-button">Continue</button>
+              <button type="submit" className="profile-type-button">Continue</button>
             </form>
           </>
         )}
@@ -118,11 +118,11 @@ const CreateAccount = () => {
         {/* Step 2: Select User Type */}
         {step === 2 && (
           <>
-            <h2 className="create-account-title">What best describes you?</h2>
-            <div className="account-type-options">
-              <button onClick={() => handleSelection("Client")} className="account-type-button">Client</button>
-              <button onClick={() => handleSelection("Contractor")} className="account-type-button">Contractor</button>
-              <button onClick={() => handleSelection("Both")} className="account-type-button">Both</button>
+            <h2 className="create-profile-title">What best describes you?</h2>
+            <div className="profile-type-options">
+              <button onClick={() => handleSelection("Client")} className="profile-type-button">Client</button>
+              <button onClick={() => handleSelection("Contractor")} className="profile-type-button">Contractor</button>
+              <button onClick={() => handleSelection("Both")} className="profile-type-button">Both</button>
             </div>
           </>
         )}
@@ -130,10 +130,10 @@ const CreateAccount = () => {
         {/* Step 3: Confirm Selection */}
         {step === 3 && (
           <>
-            <h2 className="create-account-title">Confirm: {userType}?</h2>
-            <div className="account-type-options">
-              <button onClick={() => handleConfirmation("yes")} className="account-type-button">Yes</button>
-              <button onClick={() => handleConfirmation("no")} className="account-type-button">No</button>
+            <h2 className="create-profile-title">Confirm: {userType}?</h2>
+            <div className="profile-type-options">
+              <button onClick={() => handleConfirmation("yes")} className="profile-type-button">Yes</button>
+              <button onClick={() => handleConfirmation("no")} className="profile-type-button">No</button>
             </div>
           </>
         )}
@@ -141,7 +141,7 @@ const CreateAccount = () => {
         {/* Step 4: Success */}
         {step === 4 && (
           <>
-            <h2 className="create-account-title">You're all set!</h2>
+            <h2 className="create-profile-title">You're all set!</h2>
             {success ? (
               <p className="selection-confirmation">
                 {success} Redirecting to your profile...
@@ -163,5 +163,5 @@ const CreateAccount = () => {
   );
 };
 
-export default CreateAccount;
+export default CreateProfile;
 
