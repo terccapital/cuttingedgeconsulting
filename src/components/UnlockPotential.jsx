@@ -1,6 +1,7 @@
 import "../styles/UnlockPotential.css";
 import "../styles/Global.css";
 import { Check } from "lucide-react"; // Import checkmark icon
+import { Link } from "react-router-dom";
 
 const UnlockPotential = () => {
   return (
@@ -27,7 +28,7 @@ const UnlockPotential = () => {
 
         {/* Right Side: Centered Button */}
         <div className="unlock-btn-container">
-          <a href="#learn-more" className="learn-more-btn">Learn More</a>
+          <Link to="/about" className="learn-more-btn">Learn More</Link>
         </div>
       </div>
     </section>

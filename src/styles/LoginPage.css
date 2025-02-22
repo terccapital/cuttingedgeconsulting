@@ -204,7 +204,7 @@ input:checked + .slider:before {
   }
 
   .login-image {
-    max-height: 100px;
+    max-height: 200px;
   }
 
   .login-right {
@@ -216,6 +216,7 @@ input:checked + .slider:before {
 
   .login-form-container {
     align-items: center;
+    justify-content: flex-start;
   }
 
   .login-title {

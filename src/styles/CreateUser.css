@@ -230,7 +230,7 @@ input:checked + .slider:before {
   }
 
   .create-user-image {
-    height: 150px;
+    height: 200px;
   }
 
   .create-user-right {
@@ -242,6 +242,7 @@ input:checked + .slider:before {
 
   .create-user-form-container {
     align-items: center;
+    justify-content: flex-start;
   }
 
   .create-user-title {
