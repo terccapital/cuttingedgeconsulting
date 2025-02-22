@@ -1,10 +1,10 @@
-import "../styles/LoginPage.css";
+import "../styles/CreateUser.css";
 import "../styles/Global.css";
 import { useState } from "react";
 import supabase from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+const CreateUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -13,41 +13,40 @@ const LoginPage = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
     setSuccess(null);
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
     });
 
     if (error) {
-      console.error("Login Error:", error.message);
+      console.error("Sign Up Error:", error.message);
       setError(error.message);
     } else {
-      console.log("Login Successful:", data);
-      setSuccess("Login successful!");
-      navigate("/create-account"); // Redirect after successful login
+      console.log("User Signed Up:", data);
+      setSuccess("Account created successfully! Please check your email to verify your account before logging in.");
     }
   };
 
   return (
-    <div className="login-page">
+    <div className="create-user-page">
       {/* Left Section: Image */}
-      <div className="login-image"></div>
+      <div className="create-user-image"></div>
 
       {/* Right Section: Logo + Form */}
-      <div className="login-right">
-        <div className="login-logo-bar">
-          <img src="/cec-logo-white.png" alt="CEC Logo" className="login-logo" />
+      <div className="create-user-right">
+        <div className="create-user-logo-bar">
+          <img src="/cec-logo-white.png" alt="CEC Logo" className="create-user-logo" />
         </div>
 
         {/* Form Section */}
-        <div className="login-form-container">
-          <h2 className="login-title">Welcome Back</h2>
-          <form onSubmit={handleLogin}>
+        <div className="create-user-form-container">
+          <h2 className="create-user-title">Get Started</h2>
+          <form onSubmit={handleSubmit}>
             <input
               type="email"
               placeholder="Email"
@@ -76,17 +75,17 @@ const LoginPage = () => {
               </label>
             </div>
 
-            <button type="submit" className="login-button">
-              Log In
+            <button type="submit" className="create-user-button">
+              Create Account
             </button>
           </form>
 
-          {success && <p className="login-success">{success}</p>}
-          {error && <p className="login-error">{error}</p>}
+          {success && <p className="create-user-success">{success}</p>}
+          {error && <p className="create-user-error">{error}</p>}
 
-          {/* Sign-Up Clause */}
-          <p className="login-clause">
-            Don't have an account? <a href="/create-user">Create Account</a>
+          {/* Sign-In Clause */}
+          <p className="create-user-clause">
+            Already have an account? <a href="/login">Sign In</a>
           </p>
         </div>
       </div>
@@ -94,4 +93,7 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default CreateUser;
+
+
+

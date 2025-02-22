@@ -1,5 +1,5 @@
 /* Main Layout */
-.login-page {
+.create-user-page {
   display: flex;
   flex-direction: row;
   height: 100vh;
@@ -9,19 +9,19 @@
 }
 
 /* Left Side - Image */
-.login-image {
+.create-user-image {
   flex: 0.7;
-  background: url('/Charlotte-Pic-2.jpg') no-repeat center center/cover;
+  background: url('/nc-mountains-1.jpg') no-repeat center center/cover;
   filter: grayscale(100%);
   height: 100vh;
 }
 
-.login-image:hover {
+.create-user-image:hover {
   filter: grayscale(0%);
 }
 
 /* Right Side - Logo & Form Section */
-.login-right {
+.create-user-right {
   flex: 0.3;
   background: #1e1e1e;
   display: flex;
@@ -32,19 +32,19 @@
 }
 
 /* Logo Section */
-.login-logo-bar {
+.create-user-logo-bar {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   margin-bottom: 2rem;
 }
 
-.login-logo {
+.create-user-logo {
   height: 60px;
 }
 
 /* Form Container */
-.login-form-container {
+.create-user-form-container {
   width: 100%;
   max-width: 100%;
   display: flex;
@@ -55,7 +55,7 @@
 }
 
 /* Title */
-.login-title {
+.create-user-title {
   font-size: 2rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -146,7 +146,7 @@ input:checked + .slider:before {
 }
 
 /* Button */
-.login-button {
+.create-user-button {
   width: 100%;
   padding: 12px;
   font-size: 1rem;
@@ -157,54 +157,69 @@ input:checked + .slider:before {
   transition: background 0.3s ease;
 }
 
-.login-button:hover {
+.create-user-button:hover {
   background: #1470AF;
   color: white;
 }
 
-/* Sign-Up Clause */
-.login-clause {
+/* Sign-in Clause */
+.create-user-clause {
   margin-top: 1.5rem;
   font-size: 0.9rem;
 }
 
-.login-clause a {
+.create-user-clause a {
   color: #1470AF;
   text-decoration: none;
   font-weight: 600;
 }
 
-.login-clause a:hover {
+.create-user-clause a:hover {
   text-decoration: underline;
+}
+
+/* Success and Error Messages */
+.create-user-success {
+  color: #4caf50;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.create-user-error {
+  color: #ff4d4d;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: left;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .login-page {
+  .create-user-page {
     flex-direction: column;
   }
 
-  .login-logo-bar {
+  .create-user-logo-bar {
     justify-content: center;
     margin-bottom: 1rem;
   }
 
-  .login-image {
+  .create-user-image {
     height: 250px;
   }
 
-  .login-right {
+  .create-user-right {
     flex: 1;
     width: 100%;
     padding: 1.5rem;
     align-items: center;
   }
 
-  .login-form-container {
+  .create-user-form-container {
     align-items: center;
   }
 
-  .login-title {
+  .create-user-title {
     text-align: center;
   }
 }
