@@ -7,6 +7,9 @@ import CreateProfile from "./pages/CreateProfile";
 import ProfilePage from "./pages/ProfilePage";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import CostSavingsRecovery from "./pages/CostSavingsRecovery";
+import DataAutomation from "./pages/DataAutomation";
+import SoftwareDevelopment from "./pages/SoftwareDevelopment";
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/cost-savings-recovery" element={<CostSavingsRecovery />} />
+      <Route path="/data-automation" element={<DataAutomation />} />
+      <Route path="/software-development" element={<SoftwareDevelopment />} />
     </Routes>
   );
 }
