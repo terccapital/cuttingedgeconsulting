@@ -7,7 +7,7 @@ const SoftwareDevelopment = () => {
   return (
     <div>
       <Navbar />
-      
+      <BusDiagSection />
       <Footer />
     </div>
   );
