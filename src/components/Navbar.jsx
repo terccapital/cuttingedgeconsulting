@@ -21,7 +21,6 @@ const Navbar = () => {
         <li><Link to="/data-automation">Data & Automation</Link></li>
         <li><Link to="/cost-savings-recovery">Cost Savings & Recovery</Link></li>
         <li><Link to="/software-development">Software Development</Link></li>
-        <li><Link to="/about">About</Link></li>
       </ul>
 
       {/* Right Side: Login & Hamburger */}
@@ -45,7 +44,6 @@ const Navbar = () => {
             <li><Link to="/data-automation" onClick={() => setMenuOpen(false)}>Data & Automation</Link></li>
             <li><Link to="/cost-savings-recovery" onClick={() => setMenuOpen(false)}>Cost Savings & Recovery</Link></li>
             <li><Link to="/cost-savings-recovery" onClick={() => setMenuOpen(false)}>Software Development</Link></li>
-            <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
           </ul>
         </div>
       )}

@@ -4,7 +4,7 @@
     align-items: flex-start;
     width: 100%;
     padding: 4rem 10%;
-    background: #121212;
+    background: #1470AF;
     color: white;
     box-sizing: border-box;
 }
@@ -17,7 +17,7 @@
 .contact-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1470AF;
+    color: #121212;
     margin-bottom: 1rem;
 }
 
@@ -79,8 +79,9 @@
     display: inline-block;
     padding: 12px 24px;
     font-size: 1rem;
-    color: white;
-    background: #1470AF;
+    color: #ffffff;
+    font-weight: bold;
+    background: #121212;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -88,7 +89,8 @@
 }
 
 .contact-btn:hover {
-    background: #0F5C94;
+    background: #1470AF;
+    border: 2px solid #FFFFFF;
 }
 
 /* Mobile Responsive */
